@@ -1,0 +1,104 @@
+/**********************
+ header
+**********************/
+header[role="banner"] {
+  overflow: hidden; /* Become visible on scroll, if scroll effect is supported */
+  position: relative; /* disable for browsers supporting scroll zoom effect */
+  /*max-width: 1024px;*/
+  min-height: 100vh;
+  max-height: 100vh;
+  height: 100vh;
+  
+  margin: 0;
+  /*background: url(../images/header.jpg) #fff center center no-repeat;
+  background-size: cover;*/
+  padding: 0;
+  text-align: center;
+
+  display: flex;
+
+  h1 {
+    position: absolute;
+    width: 100%;
+    bottom: 75px;
+    z-index: 10;
+    font-size: 5em;
+    font-size: 18vh;
+    margin: auto;
+    color: $title_text_color;
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    line-height: 1;
+
+    -webkit-animation-name: fadein;
+    -webkit-animation-duration: 2.2s;
+    -webkit-animation-timing-function: ease-out;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-delay: 1s;
+    -webkit-animation-fill-mode: forwards;
+
+    -moz-animation-name: fadein;
+    -moz-animation-duration: 2.2s;
+    -moz-animation-timing-function: ease-out;
+    -moz-animation-iteration-count: 1;
+    -moz-animation-delay: 1s;
+    -moz-animation-fill-mode: forwards;
+
+    animation-name: fadein;
+    animation-duration: 2.2s;
+    animation-timing-function: ease-out;
+    animation-iteration-count: 1;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+
+    em {
+      font-style: normal;
+      font-size: 85%;
+      display: block;
+    }
+  }
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    z-index: 0;
+    max-width: initial;
+    -webkit-transform-origin: 50% 0;
+    -webkit-transform: translate3d(-50%, -40%, 0) scale(1);
+  }
+}
+
+@media all and (min-width: 56em) {
+  header[role="banner"] {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    h1 {
+      position: absolute;
+      top: 70%;
+      left: 50%;
+      z-index: 10;
+      font-size: 8em;
+      width: 100%;
+      margin-bottom: $base_spacing;
+      
+      -webkit-transform: translate3d(-50%, 0, 0);
+      -moz-transform: translate3d(-50%, 0, 0);
+      transform: translate3d(-50%, 0, 0);
+
+      em {
+        display: inline;
+      }
+    }
+
+    img {
+      -webkit-transform-origin: 50% 0;
+      -webkit-transform: translate3d(-50%, -1024px, 0) scale(1.35);
+
+      transform-origin: 50% 0;
+      transform: translate3d(-50%, -1024px, 0) scale(1.35);
+    }
+  }
+}

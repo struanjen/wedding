@@ -1,0 +1,11 @@
+$base_spacing: 1em;
+$vertical_gutter: 4 * $base_spacing;
+$crest_color: rgb(170, 170, 170);
+$crest_ampersand: lighten($crest_color, 15%);
+$text_color: rgb(65, 65, 65);
+$text_color_light: lighten($text_color, 5%);
+$section_bg_color: rgb(244, 244, 244);
+$nav_content_bg_color: rgba(244, 244, 244, 0.98);
+$title_text_color: rgba(244, 244, 244, 0.8);
+$shadow_color_light: rgba(0, 0, 0, 0.14);
+$shadow_color_dark: rgba(0, 0, 0, 0.28);

@@ -1,0 +1,60 @@
+/**********
+ Icons
+ *********/
+ 
+ $icon_height: 0.9375em; /* 15px/16px */
+ $icon_width: 1em; /* 16px */
+ $icon_line-width: 0.1875em; /* 3px/16px */
+
+ .hamburger {
+   position: relative;
+   display: inline-block;
+   height: $icon_height;
+   width: 1.25em;
+   border-bottom: solid $icon_line-width rgb(0, 0, 0);
+ }
+ .hamburger:before,
+ .hamburger:after {
+   position: absolute;
+   top: 0;
+   display: inline-block;
+   width: 100%;
+   border-top: solid $icon_line-width rgb(0, 0, 0);
+   content: '';
+ }
+ .hamburger:before {
+   border-top-color: rgb(0, 0, 0);
+   top: 50%;
+ }
+ 
+ .cross {
+   position: relative;
+   height: $icon_height;
+   width: $icon_width;
+   display: inline-block;
+   padding: 0.25em;
+ }
+ .cross:before,
+ .cross:after {
+   position: absolute;
+   top: 0;
+   display: inline-block;
+   border-left: solid $icon_line-width rgb(0, 0, 0);
+   content: '.';
+   transform: translateX(0.25em) rotate(45deg);
+   color: transparent;
+ }
+ .cross:after {
+   border-left: solid $icon_line-width rgb(0, 0, 0);
+   transform: translateX(0.25em) translateY(-0.15em) rotate(-45deg);
+ }
+
+ button {
+   outline: none;
+ }
+
+/* Transition effect between icons */
+.icn.segue:after,
+.icn.segue:before {
+    transition: .25s linear transform;
+  }

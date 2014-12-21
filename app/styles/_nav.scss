@@ -1,0 +1,125 @@
+nav[role="navigation"] {
+  display: none;
+  
+  z-index: 99;
+  position: fixed; /* Change to fixed when scrolled into view by user */
+  position: relative;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  margin-top: 8em;
+  margin-top: 25vh;
+
+  header {
+    position: absolute;
+    z-index: 98;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0.2 * $base_spacing 0;
+    background-color: $nav_content_bg_color;
+    box-shadow: 0 -4px 8px $shadow_color_light;
+    text-align: center;
+  }
+
+  button#menu {
+    position: absolute;
+    top: 0.25em;
+    left: 0.5em;
+    border: none;
+    border-radius: 5em;
+    background: none;
+    text-align: left;
+    padding-top: 0.5em;
+    padding-left: 0.65em;
+    width: 2.5em;
+    height: 2.5em;
+  }
+  button#menu:focus {
+    background-color: rgb(220, 220, 220);
+  }
+  button#menu:hover {
+    background-color: rgb(244, 244, 244);
+  }
+
+  .crest {
+    color: $crest_color;
+    font-size: 160%;
+    font-weight: bold;
+    text-shadow: 0 1px 1px rgb(255, 255, 255);
+  }
+  .crest-amp {
+    font-weight: normal;
+    color: $crest_ampersand;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0.625em 1em;
+
+    &.menu-content {
+      position: absolute;
+      z-index: 97;
+      width: auto;
+      display: block;
+      bottom: 2.5em;
+      text-align: left;
+      background-color: $nav_content_bg_color;
+      box-shadow: 0 0 4px $shadow_color_light, 2px 4px 8px $shadow_color_dark;
+      transform: translate(-100%, 0);
+      transition: .15s ease-in-out transform;
+
+      &.menu-open {
+        transform: translate(0, 0);
+      }
+
+      * + * {
+        margin-top: .625em;
+      }
+    }
+  }
+
+  li {
+    display: block;
+    font-size: 150%;
+  }
+  li:nth-child(last) {
+    margin-right: 0;
+  }
+
+  a {
+    background-color: transparent;
+    color: $text_color;
+    text-decoration: none;
+    padding: 0.25em 0.625em;
+    border-radius: 0.75em;
+  }
+  a:hover {
+    text-decoration: none;
+    background-color: $text_color;
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media all and (min-width: 56em) {
+  nav[role="navigation"] {
+    text-align: right;
+
+    &#fixed-nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding-bottom: 0;
+    }
+
+    li {
+      display: inline-block;
+      margin-right: $base_spacing;
+    }
+    li:nth-child(last) {
+      margin-right: 0;
+    }
+  }
+}
