@@ -5,7 +5,7 @@ document.addEventListener('scroll', function() {
   'use strict';
 
   //WDNG.navbar.navPosition();
-  WDNG.intro.resize();
+  //WDNG.intro.resize();
 });
 
 document.getElementById('menu').addEventListener('click', function(e) {
@@ -51,6 +51,8 @@ WDNG.util = (function () {
 
     if (el && el.offsetParent) {
       do {
+        console.log('offsetParent');
+        console.log('el.offsetTop ' + el.offsetTop + ', el.scrollTop ' + el.scrollTop);
         //curLeft += el.offsetLeft - el.scrollLeft;
         curTop += el.offsetTop - el.scrollTop;
       } while (el = el.offsetParent);
@@ -103,8 +105,8 @@ WDNG.intro = (function () {
     scale = scale > minScale ? scale : minScale;
     var image = el.querySelector('img');
 
-    /*console.log('header offset top:', offset);
-    console.log('scale = ' + scale);
+    console.log('header offset top:', offset);
+    /*console.log('scale = ' + scale);
     console.log('translateY = ' + translateY);*/
     var newTransform = 'translate3d(-50%, ' + translateY + 'px, 0) scale(' + scale + ')';
     image.style.webkitTransform = newTransform;

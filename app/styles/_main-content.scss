@@ -19,12 +19,22 @@ h1, h2 {
   margin: 0;
   padding: 0;
   font-weight: normal;
-  letter-spacing: -0.02em;
 }
 
 h1 {
-  font-size: 3.5em;
-  font-size: 20vw;
+  font-size: 450%;
+  letter-spacing: -0.02em;
+}
+
+h3 {
+  font-size: 120%;
+  line-height: 1;
+}
+
+time {
+  color: $accent_color_light;
+  display: block;
+  font-weight: bold;
 }
 
 /**********************
@@ -32,7 +42,6 @@ h1 {
 **********************/
 main > section:nth-child(even) {
   background-color: $section_bg_color;
-  box-shadow: 0 -2em 2em $section_bg_color;
 }
 main > section {
   padding: 2 * $base_spacing;
@@ -42,18 +51,43 @@ main > section {
     max-width: 960px;  
   }
 
-  header > p {
+  p {
+    margin-bottom: 0;
     font-size: 120%;
+    line-height: 1.6;
+  }
+
+  > div > * + h3 {
+    margin-top: 3 * $base_spacing;
+  }
+  
+  header > p {
     margin: 0;
     padding: 0;
   }
-  
-  h2 {
-    color: rgb(140, 140, 140);
-    font-size: 3.2em;
-    font-size: 6vw;
-    text-shadow: 1px 1px 1px #fff;
+
+  ul {
+   list-style-type: circle;
+   font-size: 120%;
   }
+
+  a {
+    color: $link_color;
+  }
+  a:visited {
+    color: $link_color_visited;
+  }
+  a:focus {
+    color: $link_color_focus;
+  }
+  a:hover {
+    color: $link_color_hover;
+  }
+}
+
+.section-title {
+  color: $accent_color;
+  font-size: 300%;
 }
 /* End where, when */
 
@@ -63,11 +97,11 @@ main > section {
 
 @media all and (min-width: 56em) {
   h1 {
-    font-size: 7em;
     font-size: 10vw;
+    font-size: 400%;
   }
 
   header + .intro {
-    margin-top: 100vh;
+    /*margin-top: 100vh; Only when scroll effect is used*/
   }
 }

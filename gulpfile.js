@@ -92,7 +92,8 @@ gulp.task('connect', function () {
 });
 
 gulp.task('serve', ['connect', 'styles'], function () {
-    require('opn')('http://localhost:9000');
+    //require('opn')('http://localhost:9000');
+    require('opn')('http://kingsthings.local:9000');
 });
 
 // inject bower components

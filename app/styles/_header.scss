@@ -2,7 +2,8 @@
  header
 **********************/
 header[role="banner"] {
-  overflow: hidden; /* Become visible on scroll, if scroll effect is supported */
+  overflow: hidden; /* Needs to be visible on scroll, if scroll effect is supported */
+  /*overflow: visible;*/
   position: relative; /* disable for browsers supporting scroll zoom effect */
   /*max-width: 1024px;*/
   min-height: 100vh;
@@ -20,10 +21,11 @@ header[role="banner"] {
   h1 {
     position: absolute;
     width: 100%;
-    bottom: 75px;
+    bottom: 70px;
+    top: auto;
     z-index: 10;
     font-size: 5em;
-    font-size: 18vh;
+    font-size: 14vh;
     margin: auto;
     color: $title_text_color;
     text-shadow: 0 2px 2px rgba(0, 0, 0, 0.6);
@@ -54,18 +56,23 @@ header[role="banner"] {
     em {
       font-style: normal;
       font-size: 85%;
-      display: block;
     }
   }
 
   img {
     position: absolute;
-    top: 0;
+    top: 50%;
     left: 50%;
     z-index: 0;
     max-width: initial;
     -webkit-transform-origin: 50% 0;
-    -webkit-transform: translate3d(-50%, -40%, 0) scale(1);
+    -webkit-transform: translate3d(-50%, -50%, 0) scale(1);
+  }
+}
+
+@media all and (orientation: portrait) {
+  em {
+    display: block;
   }
 }
 
@@ -94,11 +101,12 @@ header[role="banner"] {
     }
 
     img {
+      top: 0;
       -webkit-transform-origin: 50% 0;
-      -webkit-transform: translate3d(-50%, -1024px, 0) scale(1.35);
+      -webkit-transform: translate3d(-50%, -50%, 0) scale(1.35);
 
       transform-origin: 50% 0;
-      transform: translate3d(-50%, -1024px, 0) scale(1.35);
+      transform: translate3d(-50%, -50%, 0) scale(1.35);
     }
   }
 }
