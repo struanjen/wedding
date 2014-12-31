@@ -5,7 +5,11 @@
  $icon_height: 0.9375em; /* 15px/16px */
  $icon_width: 1em; /* 16px */
  $icon_line-width: 0.1875em; /* 3px/16px */
+ $icon_font-size: 0.9375em; /* 15px/16px */
 
+.icn {
+   font-size: $icon_font-size;
+}
  .hamburger {
    position: relative;
    display: inline-block;
@@ -56,5 +60,5 @@
 /* Transition effect between icons */
 .icn.segue:after,
 .icn.segue:before {
-    transition: .25s linear transform;
+    transition: .35s linear transform;
   }

@@ -2,16 +2,16 @@ $base_spacing: 1em;
 
 $vertical_gutter: 4 * $base_spacing;
 
-$crest_color: rgb(170, 170, 170);
+$crest_color: rgb(160, 160, 160);
 $crest_ampersand: lighten($crest_color, 15%);
 
 $text_color: rgb(75, 75, 75);
 $text_color_light: lighten($text_color, 5%);
 
-$section_bg_colorX: rgba(223, 201, 133, 0.1);
 $section_bg_color: rgba(215, 185, 166, 0.1);
 
-$nav_content_bg_color: rgba(244, 244, 244, 0.98);
+$nav_content_bg_colorX: darken($section_bg_color, 25%);
+$nav_content_bg_color: darken(rgba(100, 133, 94, 0.98), 4%);
 
 $title_text_color: rgba(244, 244, 244, 0.8);
 
@@ -22,7 +22,6 @@ $accent_colorX: rgb(216, 89, 152);
 $accent_color: rgb(174, 139, 110);
 $accent_color_light: lighten($accent_color, 10%);
 
-$link_colorX: rgb(91, 148, 199);
 $link_color: rgb(117, 140, 125);
 $link_color_visited: rgb(179, 189, 143);
 $link_color_hover: rgb(89, 116, 86);

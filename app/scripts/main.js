@@ -4,26 +4,32 @@ var WDNG = WDNG || {};
 document.addEventListener('scroll', function() {
   'use strict';
 
-  //WDNG.navbar.navPosition();
+  WDNG.navbar.navPosition();
   //WDNG.intro.resize();
 });
 
-document.getElementById('menu').addEventListener('click', function(e) {
-  'use strict';
+function setupMenuBtn() {
+    console.log('setup menu');
 
-  var menuContent = document.querySelector('.menu-content'),
-    targetClass = e.target.classList;
+  document.querySelector('#fixed-nav #menu').addEventListener('click', function(e) {
+    'use strict';
 
-  if ( menuContent.classList.contains('menu-open') ) {
-    menuContent.classList.remove('menu-open');
-    targetClass.add('hamburger');
-    targetClass.remove('cross');
-  } else {
-    menuContent.classList.add('menu-open');
-    targetClass.remove('hamburger');
-    targetClass.add('cross');
-  }
-});
+    console.log('clicked on menu');
+
+    var menuContent = document.querySelector('.menu-content'),
+      targetClass = e.target.classList;
+
+    if ( menuContent.classList.contains('menu-open') ) {
+      menuContent.classList.remove('menu-open');
+      targetClass.add('hamburger');
+      targetClass.remove('cross');
+    } else {
+      menuContent.classList.add('menu-open');
+      targetClass.remove('hamburger');
+      targetClass.add('cross');
+    }
+  });
+}
 
 WDNG.app = (function () {
 
@@ -51,8 +57,8 @@ WDNG.util = (function () {
 
     if (el && el.offsetParent) {
       do {
-        console.log('offsetParent');
-        console.log('el.offsetTop ' + el.offsetTop + ', el.scrollTop ' + el.scrollTop);
+        //console.log('offsetParent');
+        //console.log('el.offsetTop ' + el.offsetTop + ', el.scrollTop ' + el.scrollTop);
         //curLeft += el.offsetLeft - el.scrollLeft;
         curTop += el.offsetTop - el.scrollTop;
       } while (el = el.offsetParent);
@@ -105,7 +111,7 @@ WDNG.intro = (function () {
     scale = scale > minScale ? scale : minScale;
     var image = el.querySelector('img');
 
-    console.log('header offset top:', offset);
+    //console.log('header offset top:', offset);
     /*console.log('scale = ' + scale);
     console.log('translateY = ' + translateY);*/
     var newTransform = 'translate3d(-50%, ' + translateY + 'px, 0) scale(' + scale + ')';
@@ -124,27 +130,33 @@ WDNG.navbar = (function () {
   'use strict';
 
   var selector = 'nav[role="navigation"]';
+  var trigger = 'main[role="main"]';
 
   function navTop () {
     var el = WDNG.util.domEl(selector);
-    var offset = WDNG.util.getOffset(el);
-    var fixedNav = WDNG.util.domEl('#fixed-nav');
-    var clone = el.cloneNode(true);
-    clone.id = 'fixed-nav';
+    var triggerEl = WDNG.util.domEl(trigger);
+    var offset = WDNG.util.getOffset(triggerEl);
+    var fixedNavId = 'fixed-nav';
+    var fixedNav = WDNG.util.domEl('#' + fixedNavId);
+    //var clone = el.cloneNode(true);
+    //clone.id = fixedNavClassName;
     // append clone and set 'fixed' position
     //console.log('el offset top:', offset);
-    if (offset.top < 1) {
+    if (offset.top < 10) {
       if (fixedNav === null) {
-        document.body.appendChild(clone);
-        el.style.visibility = 'hidden';
+        //document.body.appendChild(clone);
+        //el.style.visibility = 'hidden';
+        el.id = fixedNavId;
+        setupMenuBtn();
       }
     } else if (fixedNav) {
-      document.body.removeChild(fixedNav);
-      el.style.visibility = '';
+      //document.body.removeChild(fixedNav);
+      el.id = '';
+      //el.style.visibility = '';
     }
   }
 
-  function navBottom() {
+  /*function navBottom() {
     var el = WDNG.util.domEl(selector);
     var offset = WDNG.util.getOffset(el);
     var navFixed = false;
@@ -160,13 +172,13 @@ WDNG.navbar = (function () {
       el.style.position = 'relative';
       navFixed = false;
     }
-  }
+  }*/
 
-  function navPosition() {}
+  var navPosition = function navPosition() {}
 
   return {
     navTop: navTop,
-    navBottom: navBottom,
+    //navBottom: navBottom,
     navPosition: navPosition
   };
 }());
@@ -175,8 +187,8 @@ WDNG.navbar = (function () {
 if ( window.matchMedia("(min-width: 56em)").matches ) {
   console.log('Min medium screen...');
   WDNG.navbar.navPosition = WDNG.navbar.navTop
-} else {
+} /*else {
   console.log('Small screen...');
   WDNG.navbar.navPosition = WDNG.navbar.navBottom;
   WDNG.intro.resize = function() {};
-}
+}*/

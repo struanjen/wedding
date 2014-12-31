@@ -1,26 +1,35 @@
 nav[role="navigation"] {
-  display: none;
-  
-  z-index: 99;
-  position: fixed; /* Change to fixed when scrolled into view by user */
+  display: block;
+  /*display: none;*/
+  /*position: fixed;  Change to fixed when scrolled into view by user */
   position: relative;
   width: 100%;
-  bottom: 0;
+  /*bottom: 0;*/
+  top: 0;
   left: 0;
   right: 0;
+  z-index: 99;
+  opacity: 0;
 
-  margin-top: 8em;
-  margin-top: 25vh;
+  position: fixed;
+
+  transition: .4s ease-in-out opacity;
+
+  &#fixed-nav {
+    opacity: 1;
+  }
 
   header {
     position: absolute;
     z-index: 98;
-    bottom: 0;
+    top: 0;
     left: 0;
     right: 0;
     padding: 0.2 * $base_spacing 0;
     background-color: $nav_content_bg_color;
-    box-shadow: 0 -4px 8px $shadow_color_light;
+    background-color: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 0 4px $shadow_color_light;
+    border-bottom: solid 1px #d6d6d6;
     text-align: center;
   }
 
@@ -51,22 +60,26 @@ nav[role="navigation"] {
     text-shadow: 0 1px 1px rgb(255, 255, 255);
   }
   .crest-amp {
-    font-weight: normal;
     color: $crest_ampersand;
+    transform: rotate(-14deg);
+    display: inline-block; /* Allow rotate */
+    opacity: 0.99; /* change stacking order so that & goes behind 'S' */
   }
 
   ul {
     margin: 0;
-    padding: 0.625em 1em;
+    padding: 1.2em 1em;
 
     &.menu-content {
       position: absolute;
       z-index: 97;
       width: auto;
       display: block;
-      bottom: 2.5em;
+      /*bottom: 2.5em;*/
+      top: 2em;
       text-align: left;
       background-color: $nav_content_bg_color;
+      background-color: rgba(255, 255, 255, 0.97);
       box-shadow: 0 0 4px $shadow_color_light, 2px 4px 8px $shadow_color_dark;
       transform: translate(-100%, 0);
       transition: .15s ease-in-out transform;
@@ -76,7 +89,7 @@ nav[role="navigation"] {
       }
 
       * + * {
-        margin-top: .625em;
+        margin-top: 0.625em;
       }
     }
   }
@@ -103,7 +116,7 @@ nav[role="navigation"] {
   }
 }
 
-@media all and (min-width: 56em) {
+/*@media all and (min-width: 56em) {
   nav[role="navigation"] {
     text-align: right;
 
@@ -122,4 +135,4 @@ nav[role="navigation"] {
       margin-right: 0;
     }
   }
-}
+}*/
