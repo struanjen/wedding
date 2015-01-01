@@ -184,11 +184,11 @@ WDNG.navbar = (function () {
 }());
 
 
+  WDNG.navbar.navPosition = WDNG.navbar.navTop;
+
 if ( window.matchMedia('(min-width: 56em)').matches ) {
   console.log('Min medium screen...');
-  WDNG.navbar.navPosition = WDNG.navbar.navTop;
-} /*else {
-  console.log('Small screen...');
-  WDNG.navbar.navPosition = WDNG.navbar.navBottom;
-  WDNG.intro.resize = function() {};
-}*/
+  document.querySelector('nav[role="navigation"]').classList.add('sticky');
+} else {
+  document.querySelector('nav[role="navigation"]').classList.add('fly-in');
+}

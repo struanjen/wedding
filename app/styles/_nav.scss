@@ -1,19 +1,14 @@
-nav[role="navigation"] {
+nav[role="navigation"].fly-in {
   display: block;
-  /*display: none;*/
-  /*position: fixed;  Change to fixed when scrolled into view by user */
-  position: relative;
   width: 100%;
-  /*bottom: 0;*/
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 99;
   opacity: 0;
 
-  position: fixed;
-
-  transition: .4s ease-in-out opacity;
+  transition: .5s ease-in-out opacity;
 
   &#fixed-nav {
     opacity: 1;
@@ -68,14 +63,13 @@ nav[role="navigation"] {
 
   ul {
     margin: 0;
-    padding: 1.2em 1em;
+    padding: 1.2em 0;
 
     &.menu-content {
       position: absolute;
       z-index: 97;
       width: auto;
       display: block;
-      /*bottom: 2.5em;*/
       top: 2em;
       text-align: left;
       background-color: $nav_content_bg_color;
@@ -96,43 +90,99 @@ nav[role="navigation"] {
 
   li {
     display: block;
-    font-size: 150%;
   }
   li:nth-child(last) {
     margin-right: 0;
   }
 
   a {
+    font-size: 150%;
+    display: block;
     background-color: transparent;
     color: $text_color;
     text-decoration: none;
-    padding: 0.25em 0.625em;
-    border-radius: 0.75em;
+    padding: 0.25em 1em;
   }
   a:hover {
     text-decoration: none;
-    background-color: $text_color;
+    background-color: $link_color_visited;
     color: rgb(255, 255, 255);
   }
 }
 
-/*@media all and (min-width: 56em) {
-  nav[role="navigation"] {
-    text-align: right;
 
-    &#fixed-nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      padding-bottom: 0;
+nav[role="navigation"].sticky {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 0 4px $shadow_color_light;
+  border-bottom: solid 1px #d6d6d6;
+
+  opacity: 0;
+  transition: .5s ease-in-out opacity;
+
+  &#fixed-nav {
+    opacity: 1;
+  }
+
+  header {
+    float: left;
+    position: relative;
+    top: 0.5em;
+    left: 1em;
+    display: inline;
+    width: auto;
+  
+    button {
+      display: none;
     }
 
-    li {
-      display: inline-block;
-      margin-right: $base_spacing;
+    .crest {
+      color: $crest_color;
+      font-size: 160%;
+      font-weight: bold;
+      text-shadow: 0 1px 1px rgb(255, 255, 255);
     }
-    li:nth-child(last) {
-      margin-right: 0;
+    .crest-amp {
+      color: $crest_ampersand;
+      transform: rotate(-14deg);
+      display: inline-block; /* Allow rotate */
+      opacity: 0.99; /* change stacking order so that & goes behind 'S' */
     }
   }
-}*/
+
+  ul.menu-content {
+    position: relative;
+    float: right;
+    display: inline-block;
+    margin: 0;
+    padding: 0.625em 0;
+    text-align: right;
+  }
+
+  li {
+    display: inline-block;
+    margin-right: $base_spacing;
+  }
+  li:nth-child(last) {
+    margin-right: 0;
+  }
+
+  a {
+    font-size: 150%;
+    display: block;
+    background-color: transparent;
+    color: $text_color;
+    text-decoration: none;
+    padding: 0 0.625em;
+    border-radius: 0.75em;
+  }
+  a:hover {
+    text-decoration: none;
+    background-color: $link_color_visited;
+    color: rgb(255, 255, 255);
+  }
+}

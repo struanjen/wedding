@@ -3,6 +3,9 @@
 
 var gulp = require('gulp');
 
+var deploy = require('gulp-gh-pages');
+
+
 // load plugins
 var $ = require('gulp-load-plugins')();
 
@@ -111,6 +114,11 @@ gulp.task('wiredep', function () {
             directory: 'app/bower_components'
         }))
         .pipe(gulp.dest('app'));
+});
+
+gulp.task('deploy', function () {
+    return gulp.src('./dist/**/*')
+        .pipe(deploy(options));
 });
 
 gulp.task('watch', ['connect', 'serve'], function () {
