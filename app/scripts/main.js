@@ -9,11 +9,11 @@ document.addEventListener('scroll', function() {
 });
 
 function setupMenuBtn() {
-    console.log('setup menu');
+  'use strict';
+
+  console.log('setup menu');
 
   document.querySelector('#fixed-nav #menu').addEventListener('click', function(e) {
-    'use strict';
-
     console.log('clicked on menu');
 
     var menuContent = document.querySelector('.menu-content'),
@@ -174,7 +174,7 @@ WDNG.navbar = (function () {
     }
   }*/
 
-  var navPosition = function navPosition() {}
+  var navPosition = function navPosition() {};
 
   return {
     navTop: navTop,
@@ -184,9 +184,9 @@ WDNG.navbar = (function () {
 }());
 
 
-if ( window.matchMedia("(min-width: 56em)").matches ) {
+if ( window.matchMedia('(min-width: 56em)').matches ) {
   console.log('Min medium screen...');
-  WDNG.navbar.navPosition = WDNG.navbar.navTop
+  WDNG.navbar.navPosition = WDNG.navbar.navTop;
 } /*else {
   console.log('Small screen...');
   WDNG.navbar.navPosition = WDNG.navbar.navBottom;
